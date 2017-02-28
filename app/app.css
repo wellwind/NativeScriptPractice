@@ -1,4 +1,4 @@
-@import 'nativescript-theme-core/css/sky.css';
+@import '@nativescript-theme-core/css/sky.css';
 
 Page {
   background-color: white;
