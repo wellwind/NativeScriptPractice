@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { User } from "../../shared/user/user";
 import { UserService } from "../../shared/user/user.service";
 
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   user: User;
   isLoggingIn = true;
 
-  constructor(private userService: UserService){
+  constructor(private router: Router, private userService: UserService){
 
   }
 
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    // TODO: Define
+    this.router.navigate(["/list"])
   }
 
   signUp() {
