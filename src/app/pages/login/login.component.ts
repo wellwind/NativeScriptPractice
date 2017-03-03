@@ -1,26 +1,30 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { User } from "../../shared/user/user";
-import { UserService } from "../../shared/user/user.service";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from '../../shared/user/user';
+import { UserService } from '../../shared/user/user.service';
+import { Page } from 'ui/page';
 
 @Component({
-  selector: "my-app",
+  selector: 'my-app',
   providers: [UserService],
   templateUrl: 'pages/login/login.html',
-  styleUrls: ["pages/login/login-common.css", "pages/login/login.css"]
+  styleUrls: ['pages/login/login-common.css', 'pages/login/login.css']
 })
 export class LoginComponent implements OnInit {
 
   user: User;
   isLoggingIn = true;
 
-  constructor(private router: Router, private userService: UserService){
+  constructor(private router: Router, private userService: UserService, private page: Page) {
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.user = new User();
     this.user.email = 'wellwind@test.com';
+
+    this.page.actionBarHidden = true;
+    this.page.backgroundImage = 'res://bg_login';
   }
 
   submit() {
@@ -32,17 +36,17 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.router.navigate(["/list"])
+    this.router.navigate(['/list'])
   }
 
   signUp() {
     this.userService.register(this.user)
       .subscribe(
-        () => {
-          alert("Your account was successfully created.");
-          this.toggleDisplay();
-        },
-        () => alert("Unfortunately we were unable to create your account.")
+      () => {
+        alert('Your account was successfully created.');
+        this.toggleDisplay();
+      },
+      () => alert('Unfortunately we were unable to create your account.')
       );
   }
 

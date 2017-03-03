@@ -4,5 +4,7 @@
       "when": "$(basename).ts"
     },
     "**/*.js.map": true
-  }
+},
+"angulardoc.repoId": "52b1d2a8-30a3-41e2-aa93-daf55ec7cc27",
+"angulardoc.lastSync": 0
 }
