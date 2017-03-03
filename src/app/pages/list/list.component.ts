@@ -7,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
   groceryList: Array<Object> = [];
+  grocery: string;
 
   ngOnInit() {
     this.groceryList.push({ name: 'Apples' });
     this.groceryList.push({ name: 'Bananas' });
     this.groceryList.push({ name: 'Oranges' });
+  }
+
+  add() {
+    this.groceryList.push({name: this.grocery });
+    this.grocery = '';
   }
 }
