@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../../shared/user/user';
 import { UserService } from '../../shared/user/user.service';
 import { Page } from 'ui/page';
+import { Color } from 'color';
+import { View } from 'ui/core/view';
 
 @Component({
   selector: 'my-app',
@@ -14,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   user: User;
   isLoggingIn = true;
+  @ViewChild('container') container: ElementRef;
 
   constructor(private router: Router, private userService: UserService, private page: Page) {
 
@@ -52,5 +55,10 @@ export class LoginComponent implements OnInit {
 
   toggleDisplay() {
     this.isLoggingIn = !this.isLoggingIn;
+    const containerElement = <View>this.container.nativeElement;
+    containerElement.animate({
+      backgroundColor: this.isLoggingIn ? new Color('white') : new Color('#ADD8E6'),
+      duration: 200
+    });
   }
 }
