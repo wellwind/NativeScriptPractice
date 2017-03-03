@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as timer from 'timer';
 
 @Component({
   selector: 'app-list',
@@ -13,7 +14,7 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
-    setTimeout(() => {
+    timer.setTimeout(() => {
       this.groceryList.push({ name: 'Apples' });
       this.groceryList.push({ name: 'Bananas' });
       this.groceryList.push({ name: 'Oranges' });
