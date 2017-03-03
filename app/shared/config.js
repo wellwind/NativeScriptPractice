@@ -1,5 +1,0 @@
-"use strict";
-exports.Config = {
-    apiUrl: 'https://jsonplaceholder.typicode.com/'
-};
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29uZmlnLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiY29uZmlnLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBYSxRQUFBLE1BQU0sR0FBRztJQUNsQixNQUFNLEVBQUUsdUNBQXVDO0NBQ2xELENBQUEiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY29uc3QgQ29uZmlnID0ge1xuICAgIGFwaVVybDogJ2h0dHBzOi8vanNvbnBsYWNlaG9sZGVyLnR5cGljb2RlLmNvbS8nXG59Il19

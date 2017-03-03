@@ -40,7 +40,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# NativeScript
-src/node_modules
-src/platforms
-src/app/**/*.js
+#NativeScript
+platforms
