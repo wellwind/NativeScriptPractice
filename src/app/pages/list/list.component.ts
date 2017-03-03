@@ -9,6 +9,7 @@ export class ListComponent implements OnInit {
   groceryList: Array<Object> = [];
   grocery: string;
   isLoading = false;
+  listLoaded = false;
 
   ngOnInit() {
     this.isLoading = true;
@@ -17,6 +18,7 @@ export class ListComponent implements OnInit {
       this.groceryList.push({ name: 'Bananas' });
       this.groceryList.push({ name: 'Oranges' });
       this.isLoading = false;
+      this.listLoaded = true;
     }, 500);
 
   }
