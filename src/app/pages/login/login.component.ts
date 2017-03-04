@@ -31,6 +31,11 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
+    if (!this.user.isEmailValid()) {
+      alert('Enter a valid email address.');
+      return;
+    }
+
     if (this.isLoggingIn) {
       this.login();
     } else {
@@ -39,7 +44,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.router.navigate(['/list'])
+    this.router.navigate(['/list']);
   }
 
   signUp() {
