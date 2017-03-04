@@ -5,6 +5,8 @@ import { UserService } from '../../shared/user/user.service';
 import { Page } from 'ui/page';
 import { Color } from 'color';
 import { View } from 'ui/core/view';
+import { setHintColor } from '../../utils/hint-util';
+import { TextField } from 'ui/text-field';
 
 @Component({
   selector: 'my-app',
@@ -17,6 +19,8 @@ export class LoginComponent implements OnInit {
   user: User;
   isLoggingIn = true;
   @ViewChild('container') container: ElementRef;
+  @ViewChild('email') email: ElementRef;
+  @ViewChild('password') password: ElementRef;
 
   constructor(private router: Router, private userService: UserService, private page: Page) {
 
@@ -60,10 +64,23 @@ export class LoginComponent implements OnInit {
 
   toggleDisplay() {
     this.isLoggingIn = !this.isLoggingIn;
+    this.setTextFieldColors();
     const containerElement = <View>this.container.nativeElement;
     containerElement.animate({
       backgroundColor: this.isLoggingIn ? new Color('white') : new Color('#ADD8E6'),
       duration: 200
     });
+  }
+  setTextFieldColors() {
+    const emailTextField = <TextField>this.email.nativeElement;
+    const passwordTextField = <TextField>this.password.nativeElement;
+
+    const mainTextColor = new Color(this.isLoggingIn ? 'black' : '#C4AFB4');
+    emailTextField.color = mainTextColor;
+    passwordTextField.color = mainTextColor;
+
+    const hintColor = new Color(this.isLoggingIn ? '#ACA6A7' : '#C4AFB4');
+    setHintColor({ view: emailTextField, color: hintColor });
+    setHintColor({ view: passwordTextField, color: hintColor });
   }
 }
